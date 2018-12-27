@@ -1,0 +1,41 @@
+{
+  "db": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "",
+    "database": "userdata",
+    "password": "",
+    "name": "db",
+    "user": "",
+    "connector": "mongodb"
+  },
+  "emailDs": {
+    "name": "emailDs",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "SMTP",
+        "host": "smtp.gmail.com",
+        "secure": true,
+        "port": 465,
+        "tls": {
+          "rejectUnauthorized": false
+        },
+        "auth": {
+          "user": "techmdemo123@gmail.com",
+          "pass": "Admin@123"
+        }
+      }
+    ]
+  },
+  "mydb": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "",
+    "database": "userrole",
+    "password": "",
+    "name": "mydb",
+    "user": "",
+    "connector": "mongodb"
+  }
+}
