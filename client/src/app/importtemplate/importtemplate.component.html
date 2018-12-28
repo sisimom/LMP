@@ -1,0 +1,42 @@
+<button type="button" class="btn btn-primary btn-sm" mdbBtn rounded="true" data-toggle="modal"
+  data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>
+  <i class="fa fa-upload" aria-hidden="true"></i>
+  Import Template
+</button>
+
+<div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog cascading-modal" role="document">
+    <div class="modal-content">
+      <div class="modal-c-tabs">
+        <mdb-tabset #staticTabs [buttonClass]="'nav md-tabs tabs-2 light-blue darken-3'" [contentClass]="''" class="tab-content">
+          <div class="site-bg-color text-center card-heading rounded" mdbWavesEffect>
+            <h6>
+              <i class="fa fa-upload" aria-hidden="true"></i>
+              Import Template
+            </h6>
+          </div>
+          <div class="modal-body py-0 px-3">
+            <div class="md-form form-sm mb-1">
+              <input mdbInputDirective type="file" id="form22" class="form-control" [formControl]="importTemplate">
+              <label for="form22">Template File</label>
+              <div *ngIf="submitted && f.template.errors" class="invalid-feedback">
+                <div *ngIf="f.template.errors.required">Template file is required</div>
+              </div>
+            </div>
+            <div class="text-center">
+              <button class="btn btn-primary btn-sm waves-light" mdbWavesEffect>
+                <i class="fa fa-upload" aria-hidden="true"></i>
+                Import Template
+              </button>
+            </div>
+          </div>
+          <div class="modal-footer display-footer px-2 my-0">
+            <button type="button" mdbBtn color="info" outline="true" class="btn btn-primary btn-sm waves-light"
+              data-dismiss="modal" (click)="frame.hide()" mdbWavesEffect>Close</button>
+          </div>
+        </mdb-tabset>
+      </div>
+    </div>
+  </div>
+</div>
