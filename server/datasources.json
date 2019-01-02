@@ -28,14 +28,12 @@
       }
     ]
   },
-  "mydb": {
+  "storage": {
     "host": "localhost",
     "port": 27017,
-    "url": "",
-    "database": "userrole",
-    "password": "",
-    "name": "mydb",
-    "user": "",
-    "connector": "mongodb"
+    "database": "meesamdb",
+    "name": "storage",
+    "connector": "loopback-component-storage-mongo",
+    "provider": "filestore-mongo"
   }
 }

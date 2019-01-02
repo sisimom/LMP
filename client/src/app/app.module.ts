@@ -11,12 +11,11 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
 
 import { AppRoutingModule } from './app-routing.module';
 import { LoginModule } from '../app/login/login.module';
-import { ForgotpasswordModule } from '../app/forgotpassword/forgotpassword.module';
 import { HttpClientModule } from '@angular/common/http';
-import { UsermanagementComponent } from './usermanagement/usermanagement.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { ResetpasswordModule } from './resetpassword/resetpassword.module';
-import { ImporttemplateComponent } from './importtemplate/importtemplate.component';
+import { UsermanagementModule } from './usermanagement/usermanagement.module';
+
 
 @NgModule({
   declarations: [
@@ -24,8 +23,7 @@ import { ImporttemplateComponent } from './importtemplate/importtemplate.compone
     FooterComponent,
     DashboardComponent,
     ForgotpasswordComponent,
-    UsermanagementComponent,
-    ImporttemplateComponent,
+    
     
   ],
   imports: [
@@ -36,7 +34,8 @@ import { ImporttemplateComponent } from './importtemplate/importtemplate.compone
     LoginModule,
     HttpClientModule,
     AngularFontAwesomeModule,
-    ResetpasswordModule
+    ResetpasswordModule,
+    UsermanagementModule
   ],
   providers: [],
   schemas: [ NO_ERRORS_SCHEMA ],

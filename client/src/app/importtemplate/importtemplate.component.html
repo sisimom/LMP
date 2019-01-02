@@ -1,5 +1,5 @@
-<button type="button" class="btn btn-primary btn-sm" mdbBtn rounded="true" data-toggle="modal"
-  data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>
+<button type="button" class="btn btn-primary btn-sm" mdbBtn rounded="true" data-toggle="modal" data-target="#basicExample"
+  (click)="frame.show()" mdbWavesEffect>
   <i class="fa fa-upload" aria-hidden="true"></i>
   Import Template
 </button>
@@ -17,17 +17,15 @@
             </h6>
           </div>
           <div class="modal-body py-0 px-3">
-            <div class="md-form form-sm mb-1">
-              <input mdbInputDirective type="file" id="form22" class="form-control" [formControl]="importTemplate">
-              <label for="form22">Template File</label>
-              <div *ngIf="submitted && f.template.errors" class="invalid-feedback">
-                <div *ngIf="f.template.errors.required">Template file is required</div>
-              </div>
+            <div class="md-form form-sm">
+               <label for="importTemplate">Template File</label>
+              <input mdbInputDirective type="file" (change)="incomingfile($event)" id="importTemplate" name="importTemplate" ng2FileSelect [uploader]="uploader" />
             </div>
-            <div class="text-center">
-              <button class="btn btn-primary btn-sm waves-light" mdbWavesEffect>
+            <div class="text-center my-3">
+              <button class="btn btn-primary btn-sm waves-light" mdbWavesEffect (click)="uploader.uploadAll()"
+                [disabled]="!uploader.getNotUploadedItems().length">
                 <i class="fa fa-upload" aria-hidden="true"></i>
-                Import Template
+                Upload Template
               </button>
             </div>
           </div>

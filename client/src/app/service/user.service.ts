@@ -20,6 +20,7 @@ export class UserService {
 
 
   constructor(private http: HttpClient) { }
+
   public validateUser(userName, password) {
     const data = {
       "email": userName,
@@ -37,5 +38,12 @@ export class UserService {
   public userAuthentication() {
     const reqHeader = new HttpHeaders({ 'Content-Type': 'application/json','No-Auth':'False' });
     return this.http.post(this.rootUrl + '/token', { headers: reqHeader });
+  }
+
+  public addUsers(data){
+   // const reqHeader = new HttpHeaders({ 'Content-Type': 'application/json','No-Auth':'False' });
+    console.log("environment.restURL + 'users' ", environment.restURL + 'users');
+    console.log("data ", data)
+    return this.http.post(environment.restURL + 'users', data, this.httpOptions);
   }
 }
