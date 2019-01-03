@@ -19,7 +19,10 @@ export class ForgotpasswordComponent implements OnInit {
   public loading = false;
   public returnUrl: String;
 
-  constructor(private elRef: ElementRef, private formBuilder: FormBuilder, private route: ActivatedRoute,
+  constructor(
+    private elRef: ElementRef,
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
     private router: Router,
     private WorkflowService: WorkflowService,
     private userService: UserService) {

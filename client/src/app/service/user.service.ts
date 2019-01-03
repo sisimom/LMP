@@ -49,4 +49,12 @@ export class UserService {
     }
     return this.http.post(environment.restURL + 'users/reset', data, this.httpOptions);
   }
+
+  
+  public resetPassword(newpassword) {
+    const data = {
+      "newpassword": newpassword
+    }
+    return this.http.post(environment.restURL + 'users/reset', data, this.httpOptions);
+  }
 }
