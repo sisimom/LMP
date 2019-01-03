@@ -10,14 +10,12 @@ export class UserService {
 
   public httpOptions = {
     headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-     //   'Authorization': "Basic " + btoa("admin:admin")
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
     })
   };
 
   public noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
-
 
   constructor(private http: HttpClient) { }
 
@@ -26,24 +24,29 @@ export class UserService {
       "email": userName,
       "password": password
     }
-    // const data = {
-    //   "email": "demo@gm.com",
-    //   "password": "123456"
-    // }
-   
-    //const reqHeader = new HttpHeaders({ 'Content-Type': 'application/x-www-urlencoded','No-Auth':'True' });
     return this.http.post(environment.restURL + 'users/login', data, this.httpOptions);
   }
 
   public userAuthentication() {
-    const reqHeader = new HttpHeaders({ 'Content-Type': 'application/json','No-Auth':'False' });
+    const reqHeader = new HttpHeaders({ 'Content-Type': 'application/json', 'No-Auth': 'False' });
     return this.http.post(this.rootUrl + '/token', { headers: reqHeader });
   }
 
-  public addUsers(data){
-   // const reqHeader = new HttpHeaders({ 'Content-Type': 'application/json','No-Auth':'False' });
-    console.log("environment.restURL + 'users' ", environment.restURL + 'users');
-    console.log("data ", data)
+  public addUsers(data) {
     return this.http.post(environment.restURL + 'users', data, this.httpOptions);
+  }
+
+  public logout(userToken) {
+    const data = {
+      "access_token": userToken
+    }
+    return this.http.get(environment.restURL + 'users/logout', this.httpOptions);
+  }
+
+  public forgotPassword(emailid) {
+    const data = {
+      "email": emailid
+    }
+    return this.http.post(environment.restURL + 'users/reset', data, this.httpOptions);
   }
 }

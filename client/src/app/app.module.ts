@@ -1,20 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-
 import { AppComponent } from './app.component';
-
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HeaderModule } from './header/header.module';
 import { FooterComponent } from './footer/footer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
-
 import { AppRoutingModule } from './app-routing.module';
 import { LoginModule } from '../app/login/login.module';
+import { ForgotpasswordModule } from '../app/forgotpassword/forgotpassword.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { ResetpasswordModule } from './resetpassword/resetpassword.module';
 import { UsermanagementModule } from './usermanagement/usermanagement.module';
+import { EmaildeliveryComponent } from './emaildelivery/emaildelivery.component';
 
 
 @NgModule({
@@ -22,7 +20,8 @@ import { UsermanagementModule } from './usermanagement/usermanagement.module';
     AppComponent,
     FooterComponent,
     DashboardComponent,
-    ForgotpasswordComponent,
+    EmaildeliveryComponent,
+    
     
     
   ],
@@ -35,7 +34,8 @@ import { UsermanagementModule } from './usermanagement/usermanagement.module';
     HttpClientModule,
     AngularFontAwesomeModule,
     ResetpasswordModule,
-    UsermanagementModule
+    UsermanagementModule,
+    ForgotpasswordModule,
   ],
   providers: [],
   schemas: [ NO_ERRORS_SCHEMA ],

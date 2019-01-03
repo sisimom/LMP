@@ -2,15 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
 import { environment } from '../../environments/environment';
-import {
-  HttpClient,
-  HttpHeaders
-} from "@angular/common/http"
 import { ViewChild, ElementRef } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
 import * as XLSX from 'ts-xlsx';
 import { UserService } from "../service/user.service";
+import { HttpErrorResponse, HttpHeaders, HttpClient } from '@angular/common/http';
+
+
 
 const uploadURL = environment.restURL + 'containers/container/upload';
 const newUsersURL = environment.restURL + 'users';
@@ -46,7 +45,7 @@ export class ImporttemplateComponent implements OnInit {
       if (status == 200) {
         alert('File uploaded successfully');
         this.Upload();
-       // this.router.navigate(['/usermanagement']);
+        // this.router.navigate(['/usermanagement']);
       }
     };
   }
@@ -69,18 +68,19 @@ export class ImporttemplateComponent implements OnInit {
       var first_sheet_name = workbook.SheetNames[0];
       var worksheet = workbook.Sheets[first_sheet_name];
       var jsonData = XLSX.utils.sheet_to_json(worksheet, { raw: true });
-      console.log('jsonData => ', jsonData);
 
       this.userService.addUsers(jsonData)
-      .subscribe(data=>{
-        console.log(data);
-      });
-     
+        .subscribe(data => {
+          console.log(data);
+          this.router.navigate(['/usermanagement']);
+        },
+        
+          (err: HttpErrorResponse) => {
+            console.log("Err => ", err)
+          });
     }
     fileReader.readAsArrayBuffer(this.file);
-    
   }
-
 }
 
 export class ModalFormComponent {

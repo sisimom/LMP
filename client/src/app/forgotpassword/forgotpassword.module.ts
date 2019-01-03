@@ -7,7 +7,6 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MatIconModule, MatMenuModule } from '@angular/material';
 import { AppRoutingModule } from '../app-routing.module';
 
-
 @NgModule({
       declarations: [
             ForgotpasswordComponent

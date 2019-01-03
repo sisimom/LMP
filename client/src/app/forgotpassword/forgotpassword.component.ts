@@ -4,45 +4,53 @@ import { Component, OnInit, ViewChildren, QueryList, ElementRef } from '@angular
 import { HttpErrorResponse, HttpHeaders, HttpClient } from '@angular/common/http';
 import { AppConstants } from '../common/constants/constants';
 import { WorkflowService } from '../service/workflow.service';
-
+import { UserService } from '../service//user.service';
 
 @Component({
   selector: 'app-forgotpassword',
   templateUrl: './forgotpassword.component.html',
   styleUrls: ['./forgotpassword.component.scss']
 })
+
 export class ForgotpasswordComponent implements OnInit {
 
   public forgotpasswordForm: FormGroup;
   public submitted = false;
+  public loading = false;
   public returnUrl: String;
 
-  constructor(private formBuilder: FormBuilder, private route: ActivatedRoute,
+  constructor(private elRef: ElementRef, private formBuilder: FormBuilder, private route: ActivatedRoute,
     private router: Router,
     private WorkflowService: WorkflowService,
-    ) {
-      this.WorkflowService.isUserLogin = false;
-    }
+    private userService: UserService) {
+    this.WorkflowService.isUserLogin = false;
+  }
 
   ngOnInit() {
     this.forgotpasswordForm = this.formBuilder.group({
-      emailid: ['', Validators.required]
+      emailid: ['', [Validators.required, Validators.minLength(6)]]
     });
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-  //  console.log("this.forgotpasswordForm = > ", this.forgotpasswordForm.controls)
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/forgotpassword';
   }
 
-  get f() { 
-   // console.log("this.forgotpasswordForm = > ", this.forgotpasswordForm)
+  get f() {
     return this.forgotpasswordForm.controls; }
 
   onSubmit() {
-    console.log("emailid =>");
-    // if (this.forgotpasswordForm.invalid) {
-    //   return;
-    // }
-    // const emailid = this.forgotpasswordForm.controls['emailid'].value;
-    // console.log("emailid =>", emailid);
+
+    this.submitted = true;
+
+    if (this.forgotpasswordForm.invalid) {
+      return;
+    }
+    
+    const emailid = this.forgotpasswordForm.controls['emailid'].value;
+    localStorage.setItem('emailid', emailid);
+    this.userService.forgotPassword(emailid)
+    .subscribe(
+      (data: any) => {
+        this.router.navigate(['/emaildelivery']);
+      });
   }
 
 }

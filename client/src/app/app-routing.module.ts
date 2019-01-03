@@ -5,6 +5,8 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsermanagementComponent } from './usermanagement/usermanagement.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { EmaildeliveryComponent } from './emaildelivery/emaildelivery.component';
+
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -12,6 +14,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'usermanagement', component: UsermanagementComponent },
   { path: 'resetpassword', component: ResetpasswordComponent },
+  { path: 'emaildelivery', component: EmaildeliveryComponent },
+  
   { path: '**', redirectTo: '' }
 ];
 

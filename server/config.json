@@ -2,6 +2,8 @@
   "restApiRoot": "/api",
   "host": "localhost",
   "port": 3000,
+  "uihost": "localhost",
+  "uiport":4200,
   "remoting": {
     "context": false,
     "rest": {

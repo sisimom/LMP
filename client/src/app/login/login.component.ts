@@ -44,7 +44,6 @@ export class LoginComponent implements OnInit {
   onSubmit() {
 
     this.submitted = true;
-    // stop here if form is invalid
     if (this.loginForm.invalid) {
       return;
     }
@@ -55,23 +54,13 @@ export class LoginComponent implements OnInit {
 
     this.WorkflowService.loginUserName = userName;
     this.WorkflowService.isUserLogin = true;
-    
+
     this.userService.validateUser(userName, password).subscribe(
       (data: any) => {
-
-        console.log("data ==== >> ", data);
         localStorage.setItem('userToken', data.id);
-        //this.getAccessToken();
         this.router.navigate(['/dashboard']);
-       // const header = document.getElementById('navbarNav');
-      //  header.classList.add('navbar-border');
-        /*with named routing it adds routing name like this (http://localhost:5200/(landingOutlet:home)) to avoid if
-        i add skiplocation true then it clears url and  url looks like this (http://localhost:5200)
-        with routes name in url */
-     //   this.router.navigate([{outlets: {landingOutlet: ['home']}}], {skipLocationChange: true });
-
-        },
-        (err : HttpErrorResponse)=>{
+      },
+      (err: HttpErrorResponse) => {
         this.isLoginError = true;
       });
   }
