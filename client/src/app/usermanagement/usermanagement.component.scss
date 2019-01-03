@@ -7,3 +7,23 @@
     height: 100%;
 }
 
+.datatable-container{
+    margin: 30px 0 50px 0;
+}
+
+table {
+    width: 100%;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+td, th {
+    width: 25%;
+}
+
+th.mat-sort-header-sorted {
+    color: black;
+}

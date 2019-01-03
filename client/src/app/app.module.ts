@@ -21,9 +21,6 @@ import { EmaildeliveryComponent } from './emaildelivery/emaildelivery.component'
     FooterComponent,
     DashboardComponent,
     EmaildeliveryComponent,
-    
-    
-    
   ],
   imports: [
     BrowserModule,
