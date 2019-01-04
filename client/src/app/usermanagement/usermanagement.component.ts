@@ -1,82 +1,139 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
-import { PageEvent } from '@angular/material';
+import { Component, OnInit } from '@angular/core';
 
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  color: string;
-}
-
-/** Constants used to fill up our data base. */
-const COLORS: string[] = [
-  'maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple',
-  'fuchsia', 'lime', 'teal', 'aqua', 'blue', 'navy', 'black', 'gray'
-];
-const NAMES: string[] = [
-  'Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
-  'Charlotte', 'Theodore', 'Isla', 'Oliver', 'Isabella', 'Jasper',
-  'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'
-];
+import { TableData } from '../table/table-data';
 
 @Component({
-  selector: 'app-usermanagement',
-  templateUrl: './usermanagement.component.html',
-  styleUrls: ['./usermanagement.component.scss']
-})
-
-
+    selector: 'app-usermanagement',
+    templateUrl: './usermanagement.component.html',
+    styleUrls: ['./usermanagement.component.scss']
+  })
 export class UsermanagementComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'progress', 'color'];
-  dataSource: MatTableDataSource<UserData>;
+  public rows:Array<any> = [];
+  public columns:Array<any> = [
+    {title: 'Name', name: 'name', filtering: {filterString: '', placeholder: 'Filter by name'}},
+    {
+      title: 'Position',
+      name: 'position',
+      sort: false,
+      filtering: {filterString: '', placeholder: 'Filter by position'}
+    },
+    {title: 'Office', className: ['office-header', 'text-success'], name: 'office', sort: 'asc'},
+    {title: 'Extn.', name: 'ext', sort: '', filtering: {filterString: '', placeholder: 'Filter by extn.'}},
+    {title: 'Start date', className: 'text-warning', name: 'startDate'},
+    {title: 'Salary ($)', name: 'salary'}
+  ];
+  public page:number = 1;
+  public itemsPerPage:number = 10;
+  public maxSize:number = 5;
+  public numPages:number = 1;
+  public length:number = 0;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-
-  constructor() {
-    // Create 100 users
-    const users = Array.from({ length: 30 }, (_, k) => createNewUser(k + 1));
-
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
-  }
-
-  ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
-
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
-
-  length = 100;
-  pageSize = 10;
-  pageSizeOptions: number[] = [5, 10, 25, 100];
-
-  // MatPaginator Output
-  pageEvent: PageEvent;
-
-  setPageSizeOptions(setPageSizeOptionsInput: string) {
-    this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
-  }
-}
-
-/** Builds and returns a new User. */
-function createNewUser(id: number): UserData {
-  const name =
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
-
-  return {
-    id: id.toString(),
-    name: name,
-    progress: Math.round(Math.random() * 100).toString(),
-    color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
+  public config:any = {
+    paging: true,
+    sorting: {columns: this.columns},
+    filtering: {filterString: ''},
+    className: ['table-striped', 'table-bordered']
   };
+
+  private data:Array<any> = TableData;
+
+  public constructor() {
+    this.length = this.data.length;
+  }
+
+  public ngOnInit():void {
+    this.onChangeTable(this.config);
+  }
+
+  public changePage(page:any, data:Array<any> = this.data):Array<any> {
+    let start = (page.page - 1) * page.itemsPerPage;
+    let end = page.itemsPerPage > -1 ? (start + page.itemsPerPage) : data.length;
+    return data.slice(start, end);
+  }
+
+  public changeSort(data:any, config:any):any {
+    if (!config.sorting) {
+      return data;
+    }
+
+    let columns = this.config.sorting.columns || [];
+    let columnName:string = void 0;
+    let sort:string = void 0;
+
+    for (let i = 0; i < columns.length; i++) {
+      if (columns[i].sort !== '' && columns[i].sort !== false) {
+        columnName = columns[i].name;
+        sort = columns[i].sort;
+      }
+    }
+
+    if (!columnName) {
+      return data;
+    }
+
+    // simple sorting
+    return data.sort((previous:any, current:any) => {
+      if (previous[columnName] > current[columnName]) {
+        return sort === 'desc' ? -1 : 1;
+      } else if (previous[columnName] < current[columnName]) {
+        return sort === 'asc' ? -1 : 1;
+      }
+      return 0;
+    });
+  }
+
+  public changeFilter(data:any, config:any):any {
+    let filteredData:Array<any> = data;
+    this.columns.forEach((column:any) => {
+      if (column.filtering) {
+        filteredData = filteredData.filter((item:any) => {
+          return item[column.name].match(column.filtering.filterString);
+        });
+      }
+    });
+
+    if (!config.filtering) {
+      return filteredData;
+    }
+
+    if (config.filtering.columnName) {
+      return filteredData.filter((item:any) =>
+        item[config.filtering.columnName].match(this.config.filtering.filterString));
+    }
+
+    let tempArray:Array<any> = [];
+    filteredData.forEach((item:any) => {
+      let flag = false;
+      this.columns.forEach((column:any) => {
+        if (item[column.name].toString().match(this.config.filtering.filterString)) {
+          flag = true;
+        }
+      });
+      if (flag) {
+        tempArray.push(item);
+      }
+    });
+    filteredData = tempArray;
+
+    return filteredData;
+  }
+
+  public onChangeTable(config:any, page:any = {page: this.page, itemsPerPage: this.itemsPerPage}):any {
+    if (config.filtering) {
+      Object.assign(this.config.filtering, config.filtering);
+    }
+
+    if (config.sorting) {
+      Object.assign(this.config.sorting, config.sorting);
+    }
+
+    let filteredData = this.changeFilter(this.data, this.config);
+    let sortedData = this.changeSort(filteredData, this.config);
+    this.rows = page && config.paging ? this.changePage(page, sortedData) : sortedData;
+    this.length = sortedData.length;
+  }
+
+  public onCellClick(data: any): any {
+    console.log(data);
+  }
 }

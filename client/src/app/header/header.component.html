@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-sm site-bg-color navbar-dark">
   <!-- Brand/logo -->
   <a class="navbar-brand" routerLink="/dashboard">
-    <img src="../../assets/images/logo1.png" alt="logo" style="height:40px;">
+    <!-- <img src="../../assets/images/logo1.png" alt="logo" style="height:40px;"> -->
+    <h4 style="display: inline; margin-right: 100px;">VNF Exchange</h4>
     <b class="ml-2">Lab Management Portal</b>
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
@@ -14,13 +15,11 @@
         <a class="nav-link" routerLink="/dashboard">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/dashboard">About</a>
-      </li>
-      <li>
-        <!-- <strong class="login-message">Welcome: {{this.WorkflowService.loginUserName}}</strong> |  -->
-        <a href="javascript: void(0)" class="logout" (click)="logout()" title="User Logout">
-          <strong>Logout</strong>
+        <a class="nav-link" href="javascript: void(0)" (click)="logout()" title="User Logout">
+          Logout
         </a>
+      </li>
+      <li class="nav-item">
         <img class="user-image" src="../../assets/images/user-image.png">
       </li>
     </ul>

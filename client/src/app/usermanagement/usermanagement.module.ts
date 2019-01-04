@@ -7,15 +7,15 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FileSelectDirective } from 'ng2-file-upload';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
+import { Ng2TableModule } from 'ng2-table/ng2-table';
+
 
 @NgModule({
   declarations: [
     UsermanagementComponent,
     ImporttemplateComponent,
-    FileSelectDirective
+    FileSelectDirective,
+    
   ],
   imports: [
     BrowserModule,
@@ -23,9 +23,8 @@ import { MatSortModule } from '@angular/material/sort';
     MDBBootstrapModule.forRoot(),
     FormsModule,
     AppRoutingModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule
+    Ng2TableModule,
+    
   ],
   schemas: [NO_ERRORS_SCHEMA],
 })
