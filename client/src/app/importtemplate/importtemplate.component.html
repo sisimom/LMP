@@ -18,12 +18,12 @@
           </div>
           <div class="modal-body py-0 px-3">
             <div class="md-form form-sm">
-              
+               <label for="importTemplate">Template File</label>
               <input mdbInputDirective type="file" (change)="incomingfile($event)" id="importTemplate" name="importTemplate" ng2FileSelect [uploader]="uploader" />
             </div>
             <div class="text-center my-3">
               <button class="btn btn-primary btn-sm waves-light" mdbWavesEffect (click)="uploader.uploadAll()"
-                [disabled]="!uploader.getNotUploadedItems().length" data-dismiss="frameModalTop">
+                [disabled]="!uploader.getNotUploadedItems().length">
                 <i class="fa fa-upload" aria-hidden="true"></i>
                 Upload Template
               </button>
@@ -31,7 +31,7 @@
           </div>
           <div class="modal-footer display-footer px-2 my-0">
             <button type="button" mdbBtn color="info" outline="true" class="btn btn-primary btn-sm waves-light"
-              data-dismiss="frameModalTop" (click)="frame.hide()" mdbWavesEffect>Close</button>
+              data-dismiss="modal" (click)="frame.hide()" mdbWavesEffect>Close</button>
           </div>
         </mdb-tabset>
       </div>

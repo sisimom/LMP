@@ -4,7 +4,7 @@ import { Component, OnInit, ViewChildren, QueryList, ElementRef } from '@angular
 import { HttpErrorResponse, HttpHeaders, HttpClient } from '@angular/common/http';
 import { AppConstants } from '../common/constants/constants';
 import { WorkflowService } from '../service/workflow.service';
-import { UserService } from '../service//user.service';
+
 
 @Component({
   selector: 'app-resetpassword',
@@ -16,19 +16,13 @@ export class ResetpasswordComponent implements OnInit {
   public resetpasswordForm: FormGroup;
   public submitted = false;
   public returnUrl: String;
-  public loading = false;
 
-
-  constructor(
-    private elRef: ElementRef,
-    private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
+  constructor(private formBuilder: FormBuilder, private route: ActivatedRoute,
     private router: Router,
     private WorkflowService: WorkflowService,
-    private userService: UserService) {
-    this.WorkflowService.isUserLogin = false;
-  }
-
+    ) {
+      this.WorkflowService.isUserLogin = false;
+    }
 
   ngOnInit() {
     this.resetpasswordForm = this.formBuilder.group({
@@ -37,31 +31,19 @@ export class ResetpasswordComponent implements OnInit {
       confirmpassword: ['', Validators.required]
     });
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+  //  console.log("this.resetpasswordForm = > ", this.resetpasswordForm.controls)
   }
 
-  get f() {
-    return this.resetpasswordForm.controls;
-  }
-
+  get f() { 
+   // console.log("this.resetpasswordForm = > ", this.resetpasswordForm)
+    return this.resetpasswordForm.controls; }
 
   onSubmit() {
-
-    this.submitted = true;
-
-    if (this.resetpasswordForm.invalid) {
-      return;
-    }
-
-    const currentpassword = this.resetpasswordForm.controls['currentpassword'].value;
-    const newpassword = this.resetpasswordForm.controls['newpassword'].value;
-    const confirmpassword = this.resetpasswordForm.controls['confirmpassword'].value;
-    
-    localStorage.setItem('confirmpassword', confirmpassword);
-    this.userService.resetPassword(newpassword)
-      .subscribe(
-        (data: any) => {
-          this.router.navigate(['/']);
-        });
+    console.log("emailid =>");
+    // if (this.resetpasswordForm.invalid) {
+    //   return;
+    // }
+    // const emailid = this.resetpasswordForm.controls['emailid'].value;
+    // console.log("emailid =>", emailid);
   }
-
 }

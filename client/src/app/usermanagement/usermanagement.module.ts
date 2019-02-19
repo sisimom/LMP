@@ -7,25 +7,21 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FileSelectDirective } from 'ng2-file-upload';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
-import { Ng2TableModule } from 'ng2-table/ng2-table';
 
 
 @NgModule({
   declarations: [
     UsermanagementComponent,
     ImporttemplateComponent,
-    FileSelectDirective,
-    
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,
     CommonModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
-    AppRoutingModule,
-    Ng2TableModule,
-    
+    AppRoutingModule
   ],
-  schemas: [NO_ERRORS_SCHEMA],
+  schemas: [ NO_ERRORS_SCHEMA ],
 })
 export class UsermanagementModule { }

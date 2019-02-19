@@ -42,25 +42,38 @@ export class LoginComponent implements OnInit {
   get f() { return this.loginForm.controls; }
 
   onSubmit() {
-
+ console.log("YESSSSS")
     this.submitted = true;
+    // stop here if form is invalid
     if (this.loginForm.invalid) {
+      console.log("fail")
       return;
     }
     const userName = this.loginForm.controls['username'].value;
     const password = this.loginForm.controls['password'].value;
+  console.log("UP", userName, password)
 
     localStorage.setItem('userName', this.loginForm.controls['username'].value);
 
     this.WorkflowService.loginUserName = userName;
     this.WorkflowService.isUserLogin = true;
-
+    
     this.userService.validateUser(userName, password).subscribe(
       (data: any) => {
+
+        console.log("data ==== >> ", data);
         localStorage.setItem('userToken', data.id);
+        //this.getAccessToken();
         this.router.navigate(['/dashboard']);
-      },
-      (err: HttpErrorResponse) => {
+       // const header = document.getElementById('navbarNav');
+      //  header.classList.add('navbar-border');
+        /*with named routing it adds routing name like this (http://localhost:5200/(landingOutlet:home)) to avoid if
+        i add skiplocation true then it clears url and  url looks like this (http://localhost:5200)
+        with routes name in url */
+     //   this.router.navigate([{outlets: {landingOutlet: ['home']}}], {skipLocationChange: true });
+
+        },
+        (err : HttpErrorResponse)=>{
         this.isLoginError = true;
       });
   }
