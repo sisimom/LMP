@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatMenuModule} from '@angular/material/menu';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from '../app-routing.module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AppRoutingModule } from '../app-routing.module';
       ReactiveFormsModule,
       MatMenuModule,
       BrowserAnimationsModule,
-      AppRoutingModule
+      AppRoutingModule,
+      NgbModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

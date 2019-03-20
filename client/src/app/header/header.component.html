@@ -1,13 +1,15 @@
 <nav class="navbar navbar-expand-sm site-bg-color navbar-dark">
   <!-- Brand/logo -->
+  <button  type="button" class="btn btn-primary" (click)="isCollapsed = !isCollapsed"
+  [attr.aria-expanded]="!isCollapsed" aria-controls="menu">&#9776;</button>
   <a class="navbar-brand" routerLink="/dashboard">
-    <img src="../../assets/images/logo1.png" alt="logo" style="height:40px;">
+    <!-- <img src="../../assets/images/logo1.png" alt="logo" style="height:40px;"> -->
     <b class="ml-2">Lab Management Portal</b>
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-    aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
   <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav ml-auto" *ngIf="this.WorkflowService.isUserLogin == true">
       <li class="nav-item">
@@ -26,3 +28,12 @@
     </ul>
   </div>
 </nav>
+<div  id="menu" [ngbCollapse]="isCollapsed" class="menu1">
+  <ul><br>
+  <li><i class="fas fa-users"></i>&nbsp;<a routerLink="/usermanagement" routerLinkActive="is-active">User Management</a></li><br>
+  <li><i class="fas fa-th-list"></i>&nbsp;<a routerLink="/softwarereleasematrix" routerLinkActive="is-active">Software Release Matrix</a></li><br>
+  <li><i class="fas fa-medkit"></i>&nbsp;<a href="#" routerLinkActive="is-active">Health Check</a></li><br>
+  <li><i class="fa fa-file" aria-hidden="true"></i>&nbsp; <a href="#" routerLinkActive="is-active">Resource Reservations</a></li><br>
+  <li><i class="fas fa-users"></i>&nbsp;<a href="#" routerLinkActive="is-active">Resource Management</a></li>
+  </ul>
+</div>

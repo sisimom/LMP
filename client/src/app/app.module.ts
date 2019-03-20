@@ -15,6 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { ResetpasswordModule } from './resetpassword/resetpassword.module';
 import { UsermanagementModule } from './usermanagement/usermanagement.module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { SoftwarereleasematrixComponent } from './softwarereleasematrix/softwarereleasematrix.component';
 
 
 @NgModule({
@@ -23,6 +26,7 @@ import { UsermanagementModule } from './usermanagement/usermanagement.module';
     FooterComponent,
     DashboardComponent,
     ForgotpasswordComponent,
+    SoftwarereleasematrixComponent,
     
     
   ],
@@ -35,7 +39,9 @@ import { UsermanagementModule } from './usermanagement/usermanagement.module';
     HttpClientModule,
     AngularFontAwesomeModule,
     ResetpasswordModule,
-    UsermanagementModule
+    UsermanagementModule,
+    NgbModule,
+    Ng2SmartTableModule
   ],
   providers: [],
   schemas: [ NO_ERRORS_SCHEMA ],

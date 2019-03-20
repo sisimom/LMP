@@ -1,0 +1,148 @@
+export const SRMTableData: Array<any> = [
+    {
+      'name': 'Sindhu',
+      'type': 'sdd',
+      'vendor': 'Amazon',
+      'HardwarePlatform': 'sdsfdf',
+      'OS': 'Windows',
+      'BaseSWRelease': '1.0',
+      'PatchRelease':'sdsf',
+      'DateofUpgrade':'01-01-2015',
+      'Status':'Active',
+      'Created':'yes',
+      'Contact':9003256466
+    }, {
+      'name': 'Sandhu',
+      'type': 'sdd',
+      'vendor': 'Flipkart',
+      'HardwarePlatform': 'sdsfdf',
+      'OS': 'Windows',
+      'BaseSWRelease': '2.5',
+      'PatchRelease':'sdsf',
+      'DateofUpgrade':'01-01-2016',
+      'Status':'Active',
+      'Created':'yes',
+      'Contact':9003256466
+    }, {
+      'name': 'Bindhu',
+      'type': 'sdd',
+      'vendor': 'myntra',
+      'HardwarePlatform': 'sdsfdf',
+      'OS': 'Windows',
+      'BaseSWRelease': '1.1',
+      'PatchRelease':'sdsf',
+      'DateofUpgrade':'01-01-2018',
+      'Status':'Active',
+      'Created':'yes',
+      'Contact':9003256466
+    }, {
+      'name': 'Nandhu',
+      'type': 'sdd',
+      'vendor': 'bigbasket',
+      'HardwarePlatform': 'sdsfdf',
+      'OS': 'Windows',
+      'BaseSWRelease': '2.0',
+      'PatchRelease':'sdsf',
+      'DateofUpgrade':'01-01-2017',
+      'Status':'Active',
+      'Created':'yes',
+      'Contact':9003256466
+    },{
+      'name': 'Nandhu',
+      'type': 'sdd',
+      'vendor': 'bigbasket',
+      'HardwarePlatform': 'sdsfdf',
+      'OS': 'Windows',
+      'BaseSWRelease': '2.0',
+      'PatchRelease':'sdsf',
+      'DateofUpgrade':'01-01-2017',
+      'Status':'Active',
+      'Created':'yes',
+      'Contact':9003256466
+    },{
+      'name': 'Nandhu',
+      'type': 'sdd',
+      'vendor': 'bigbasket',
+      'HardwarePlatform': 'sdsfdf',
+      'OS': 'Windows',
+      'BaseSWRelease': '2.0',
+      'PatchRelease':'sdsf',
+      'DateofUpgrade':'01-01-2017',
+      'Status':'Active',
+      'Created':'yes',
+      'Contact':9003256466
+    },{
+      'name': 'Nandhu',
+      'type': 'sdd',
+      'vendor': 'bigbasket',
+      'HardwarePlatform': 'sdsfdf',
+      'OS': 'Windows',
+      'BaseSWRelease': '2.0',
+      'PatchRelease':'sdsf',
+      'DateofUpgrade':'01-01-2017',
+      'Status':'Active',
+      'Created':'yes',
+      'Contact':9003256466
+    },{
+      'name': 'Nandhu',
+      'type': 'sdd',
+      'vendor': 'bigbasket',
+      'HardwarePlatform': 'sdsfdf',
+      'OS': 'Windows',
+      'BaseSWRelease': '2.0',
+      'PatchRelease':'sdsf',
+      'DateofUpgrade':'01-01-2017',
+      'Status':'Active',
+      'Created':'yes',
+      'Contact':9003256466
+    },{
+      'name': 'Nandhu',
+      'type': 'sdd',
+      'vendor': 'bigbasket',
+      'HardwarePlatform': 'sdsfdf',
+      'OS': 'Windows',
+      'BaseSWRelease': '2.0',
+      'PatchRelease':'sdsf',
+      'DateofUpgrade':'01-01-2017',
+      'Status':'Active',
+      'Created':'yes',
+      'Contact':9003256466
+    },{
+      'name': 'Nandhu',
+      'type': 'sdd',
+      'vendor': 'bigbasket',
+      'HardwarePlatform': 'sdsfdf',
+      'OS': 'Windows',
+      'BaseSWRelease': '2.0',
+      'PatchRelease':'sdsf',
+      'DateofUpgrade':'01-01-2017',
+      'Status':'Active',
+      'Created':'yes',
+      'Contact':9003256466
+    },{
+      'name': 'Nandhu',
+      'type': 'sdd',
+      'vendor': 'bigbasket',
+      'HardwarePlatform': 'sdsfdf',
+      'OS': 'Windows',
+      'BaseSWRelease': '2.0',
+      'PatchRelease':'sdsf',
+      'DateofUpgrade':'01-01-2017',
+      'Status':'Active',
+      'Created':'yes',
+      'Contact':9003256466
+    },{
+      'name': 'Nandhu',
+      'type': 'sdd',
+      'vendor': 'bigbasket',
+      'HardwarePlatform': 'sdsfdf',
+      'OS': 'Windows',
+      'BaseSWRelease': '2.0',
+      'PatchRelease':'sdsf',
+      'DateofUpgrade':'01-01-2017',
+      'Status':'Active',
+      'Created':'yes',
+      'Contact':9003256466
+    }
+  ];
+  

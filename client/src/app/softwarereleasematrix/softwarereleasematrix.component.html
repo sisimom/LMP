@@ -1,0 +1,37 @@
+<h6 class="ml-3 mt-2">
+  SOFTWARE RELEASE MATRIX
+</h6>
+<div class="SRM-container">
+  <div class="row">
+    <div class="col-lg-6"></div>
+    <div class="col-lg-6 text-right ">
+      <a routerLink="/softwarereleasematrix" [ngStyle]="{color:curclr}" (click)="OnClickCurr()"> Current Release</a>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a routerLink="/softwarereleasematrix" [ngStyle]="{color:hisclr}" 
+       (click)="OnClickHist()"> History</a>
+    </div>
+  </div>
+  <!-- <a routerLink="/user/bob" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+    true}">Bob</a> -->
+  <br>
+  <div *ngIf="hist==false ; else template1">
+<ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+</div>
+<ng-template #template1>
+  <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="start date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <!-- <md-form-field>
+        <input mdInput [mdDatepicker]="picker" placeholder="Choose a date">
+        <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+        <md-datepicker #picker></md-datepicker>
+      </md-form-field> -->
+  <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+</ng-template>
+<!-- <ngb-pagination [collectionSize]="10" [pageSize]="10" [(page)]="1" [maxSize]="7" [rotate]="true" ></ngb-pagination> -->
+<!-- (pageChange)="loadPage($event)" -->
+ <!-- <ngb-pagination [collectionSize]="20" maxSize="5" pageSize="4" [(page)]="page" aria-label="Default pagination" [directionLinks]="true" [boundaryLinks]="true"></ngb-pagination>
+<pre>Current page: {{page}}</pre> -->
+<!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+</div>

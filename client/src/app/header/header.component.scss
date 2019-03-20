@@ -41,3 +41,24 @@
   margin: 0 10px 0 10px;
   color: #FFF;
 }
+.menu{
+  display:ovverride;
+  float:left;
+}
+
+div>ul>li{
+  list-style: none;
+  // color: white;
+}
+.menu1{
+  width:250px;
+  height:548px;
+  background-color: whitesmoke;
+  position: absolute;
+  left: 0px;
+  top: 66px;
+  z-index: 10;
+}
+.is-active{
+  color:red !important;
+}

@@ -4,6 +4,7 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsermanagementComponent } from './usermanagement/usermanagement.component';
+import { SoftwarereleasematrixComponent } from './softwarereleasematrix/softwarereleasematrix.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'forgotpassword', component: ForgotpasswordComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'usermanagement', component: UsermanagementComponent },
+  { path: 'softwarereleasematrix', component: SoftwarereleasematrixComponent },
   { path: 'resetpassword', component: ResetpasswordComponent },
   { path: '**', redirectTo: '' }
 ];

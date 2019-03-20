@@ -28,4 +28,5 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem('userRole');
     window.location.replace('/');
   }
+  public isCollapsed:boolean = true;
 }
