@@ -1,2 +1,0 @@
-# LMP
-Lab Management Portal
