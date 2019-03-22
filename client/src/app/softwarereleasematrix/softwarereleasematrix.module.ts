@@ -13,6 +13,8 @@ import 'rxjs/add/observable/of';
 import {MatAutocompleteModule,MatBadgeModule,MatBottomSheetModule,MatButtonModule,MatButtonToggleModule,MatCardModule,MatCheckboxModule,MatChipsModule,MatDatepickerModule,MatDialogModule,MatDividerModule,MatExpansionModule,MatGridListModule,MatIconModule,MatInputModule,MatListModule,MatMenuModule,MatNativeDateModule,MatPaginatorModule,MatProgressBarModule,MatProgressSpinnerModule,MatRadioModule,MatRippleModule,MatSelectModule,MatSidenavModule,MatSliderModule,MatSlideToggleModule,MatSnackBarModule,MatSortModule,MatStepperModule,MatTableModule,MatTabsModule,MatToolbarModule,MatTooltipModule,MatTreeModule
 } from '@angular/material';
 // import { MdTabsModule, MdProgressSpinnerModule, MdInputModule, MdDatepickerModule, MdNativeDateModule} from '@angular/material';
+import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
+import {DatePipe} from '@angular/common';
 
 @NgModule({
     declarations: [
@@ -34,6 +36,7 @@ import {MatAutocompleteModule,MatBadgeModule,MatBottomSheetModule,MatButtonModul
 // MdInputModule,
 // MdDatepickerModule,
 // MdNativeDateModule,
+DatePickerModule
     ],
     exports:[
       MatAutocompleteModule,MatBadgeModule,MatBottomSheetModule,MatButtonModule,MatButtonToggleModule,MatCardModule,MatCheckboxModule,MatChipsModule,MatDatepickerModule,MatDialogModule,MatDividerModule,MatExpansionModule,MatGridListModule,MatIconModule,MatInputModule,MatListModule,MatMenuModule,MatNativeDateModule,MatPaginatorModule,MatProgressBarModule,MatProgressSpinnerModule,MatRadioModule,MatRippleModule,MatSelectModule,MatSidenavModule,MatSliderModule,MatSlideToggleModule,MatSnackBarModule,MatSortModule,MatStepperModule,MatTableModule,MatTabsModule,MatToolbarModule,MatTooltipModule,MatTreeModule

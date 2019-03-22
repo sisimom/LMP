@@ -1,37 +1,38 @@
-<h6 class="ml-3 mt-2">
+<link href="https://cdn.syncfusion.com/ej2/material.css" rel="stylesheet" />
+<h6 class="ml-3 mt-2 prd">
   SOFTWARE RELEASE MATRIX
 </h6>
 <div class="SRM-container">
   <div class="row">
     <div class="col-lg-6"></div>
     <div class="col-lg-6 text-right ">
-      <a routerLink="/softwarereleasematrix" [ngStyle]="{color:curclr}" (click)="OnClickCurr()"> Current Release</a>&nbsp;&nbsp;&nbsp;&nbsp;
-      <a routerLink="/softwarereleasematrix" [ngStyle]="{color:hisclr}" 
-       (click)="OnClickHist()"> History</a>
+      <a routerLink="/softwarereleasematrix" [ngStyle]="{color:curclr}" (click)="OnClickCurr()"><strong> Current Release</strong>
+        </a>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a routerLink="/softwarereleasematrix" [ngStyle]="{color:hisclr}" (click)="OnClickHist()"><strong> History</strong></a>
     </div>
   </div>
   <!-- <a routerLink="/user/bob" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
     true}">Bob</a> -->
   <br>
   <div *ngIf="hist==false ; else template1">
-<ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
-</div>
-<ng-template #template1>
-  <mat-form-field>
-      <input matInput [matDatepicker]="picker" placeholder="start date">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    <!-- <md-form-field>
-        <input mdInput [mdDatepicker]="picker" placeholder="Choose a date">
-        <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
-        <md-datepicker #picker></md-datepicker>
-      </md-form-field> -->
-  <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
-</ng-template>
-<!-- <ngb-pagination [collectionSize]="10" [pageSize]="10" [(page)]="1" [maxSize]="7" [rotate]="true" ></ngb-pagination> -->
-<!-- (pageChange)="loadPage($event)" -->
- <!-- <ngb-pagination [collectionSize]="20" maxSize="5" pageSize="4" [(page)]="page" aria-label="Default pagination" [directionLinks]="true" [boundaryLinks]="true"></ngb-pagination>
-<pre>Current page: {{page}}</pre> -->
-<!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+    <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+  </div>
+  <ng-template #template1>
+    <div class="row col-lg-12">
+      <h4 class="prd">select period: </h4> &nbsp;&nbsp;
+      <div class=" datepick">
+        <ejs-datepicker id='datepicker' width='110px' height="10px" placeholder='   From' [(value)]='value1' (change)='onChange1($event)' [min]='minDate' [max]='maxDate' strictMode='true' [(ngModel)]="fromDate">
+        </ejs-datepicker>
+      </div>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class=" datepick">
+        <ejs-datepicker id='datepicker' width='110px' placeholder='   To' [(value)]='value2' (change)='onChange2($event)' [min]='minDate' [max]='maxDate' strictMode='true' [(ngModel)]="toDate">
+        </ejs-datepicker>
+      </div>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <button class="btn btn-primary" (click)="viewclk()">View</button>
+    </div>
+    &nbsp;
+    <ng2-smart-table [settings]="settings" [source]="data1"></ng2-smart-table>
+  </ng-template>
 </div>

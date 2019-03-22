@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SRMTableData } from '../table/SRM-table-data';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-softwarereleasematrix',
@@ -11,11 +12,17 @@ export class SoftwarereleasematrixComponent implements OnInit {
   public hist:boolean=false;
   public current:boolean=true;
   public data:Array<any> = SRMTableData;
-  public curclr:string="blue";
-  public hisclr:string="blue";
-  constructor() {
-    // this.data.setPaging(1,5, true);
+  public data1:Array<any> = SRMTableData ;
+  public curclr:string="rgb(11, 99, 214)";
+  public hisclr:string="rgb(11, 99, 214)";
+  public minDate: Date = new Date ("01/01/2000");
+  public maxDate: Date = new Date ();
+  public value1: Date ;
+  public value2: Date ;
+
+  constructor(private datePipe: DatePipe) {
    }
+   
   settings = {
     columns: {
       name: {
@@ -54,7 +61,7 @@ export class SoftwarereleasematrixComponent implements OnInit {
     },
     pager:{
       display:true,
-      perPage:7
+      perPage:5
       },
     actions:{
         add:false,
@@ -67,17 +74,25 @@ export class SoftwarereleasematrixComponent implements OnInit {
   };
   ngOnInit() :void{
   }
-
   OnClickCurr():void{
     this.current=true;
     this.hist=false;
     this.curclr="red";
-    this.hisclr="blue";
+    this.hisclr="rgb(11, 99, 214)";
   }
   OnClickHist():void{
     this.hist=true;
     this.current=false;
     this.hisclr="red";
-    this.curclr="blue";
+    this.curclr="rgb(11, 99, 214)";
+  }
+  viewclk(){
+    this.data1=this.data.filter(SRMTableData=>new Date(SRMTableData.DateofUpgrade)<this.value2 && new Date(SRMTableData.DateofUpgrade)>this.value1);
+  }
+  onChange1(args){
+    this.value1=args.value;
+  }
+  onChange2(args){
+    this.value2=args.value;
   }
 }

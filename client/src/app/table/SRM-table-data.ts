@@ -9,7 +9,7 @@ export const SRMTableData: Array<any> = [
       'PatchRelease':'sdsf',
       'DateofUpgrade':'01-01-2015',
       'Status':'Active',
-      'Created':'yes',
+      'Created':'No',
       'Contact':9003256466
     }, {
       'name': 'Sandhu',
@@ -21,7 +21,7 @@ export const SRMTableData: Array<any> = [
       'PatchRelease':'sdsf',
       'DateofUpgrade':'01-01-2016',
       'Status':'Active',
-      'Created':'yes',
+      'Created':'No',
       'Contact':9003256466
     }, {
       'name': 'Bindhu',
@@ -67,10 +67,10 @@ export const SRMTableData: Array<any> = [
       'OS': 'Windows',
       'BaseSWRelease': '2.0',
       'PatchRelease':'sdsf',
-      'DateofUpgrade':'01-01-2017',
+      'DateofUpgrade':'01-01-2019',
       'Status':'Active',
       'Created':'yes',
-      'Contact':9003256466
+      'Contact':9003256455
     },{
       'name': 'Nandhu',
       'type': 'sdd',
@@ -91,7 +91,7 @@ export const SRMTableData: Array<any> = [
       'OS': 'Windows',
       'BaseSWRelease': '2.0',
       'PatchRelease':'sdsf',
-      'DateofUpgrade':'01-01-2017',
+      'DateofUpgrade':'01-01-2019',
       'Status':'Active',
       'Created':'yes',
       'Contact':9003256466
@@ -103,7 +103,7 @@ export const SRMTableData: Array<any> = [
       'OS': 'Windows',
       'BaseSWRelease': '2.0',
       'PatchRelease':'sdsf',
-      'DateofUpgrade':'01-01-2017',
+      'DateofUpgrade':'01-01-2019',
       'Status':'Active',
       'Created':'yes',
       'Contact':9003256466

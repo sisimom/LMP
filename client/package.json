@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "~7.1.0",
     "@angular/router": "~7.1.0",
     "@ng-bootstrap/ng-bootstrap": "^4.0.3",
+    "@syncfusion/ej2-angular-calendars": "^16.4.55",
     "@types/file-saver": "^2.0.0",
     "@types/xlsx": "0.0.36",
     "angular-bootstrap-md": "^7.1.0",

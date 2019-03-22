@@ -8,7 +8,6 @@ import { HeaderModule } from './header/header.module';
 import { FooterComponent } from './footer/footer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
-
 import { AppRoutingModule } from './app-routing.module';
 import { LoginModule } from '../app/login/login.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,6 +17,8 @@ import { UsermanagementModule } from './usermanagement/usermanagement.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { SoftwarereleasematrixComponent } from './softwarereleasematrix/softwarereleasematrix.component';
+import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
+import {DatePipe} from '@angular/common';
 
 
 @NgModule({
@@ -41,9 +42,10 @@ import { SoftwarereleasematrixComponent } from './softwarereleasematrix/software
     ResetpasswordModule,
     UsermanagementModule,
     NgbModule,
-    Ng2SmartTableModule
+    Ng2SmartTableModule,
+    DatePickerModule
   ],
-  providers: [],
+  providers: [DatePipe],
   schemas: [ NO_ERRORS_SCHEMA ],
   bootstrap: [AppComponent]
 })
