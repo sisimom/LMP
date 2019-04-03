@@ -14,12 +14,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { ResetpasswordModule } from './resetpassword/resetpassword.module';
 import { UsermanagementModule } from './usermanagement/usermanagement.module';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { SoftwarereleasematrixComponent } from './softwarereleasematrix/softwarereleasematrix.component';
 import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
-import {DatePipe} from '@angular/common';
-
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+// import { Angular5Csv } from 'angular5-csv/Angular5-csv';
 
 @NgModule({
   declarations: [
@@ -43,9 +45,13 @@ import {DatePipe} from '@angular/common';
     UsermanagementModule,
     NgbModule,
     Ng2SmartTableModule,
-    DatePickerModule
+    DatePickerModule,
+    FormsModule,ReactiveFormsModule,
+    NgSelectModule,
+    NgMultiSelectDropDownModule,
+    // Angular5Csv
   ],
-  providers: [DatePipe],
+  providers: [],
   schemas: [ NO_ERRORS_SCHEMA ],
   bootstrap: [AppComponent]
 })

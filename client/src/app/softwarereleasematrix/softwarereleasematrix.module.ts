@@ -7,14 +7,15 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FileSelectDirective } from 'ng2-file-upload';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
-// import { Ng2TableModule } from 'ng2-table/ng2-table';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import 'rxjs/add/observable/of';
 import {MatAutocompleteModule,MatBadgeModule,MatBottomSheetModule,MatButtonModule,MatButtonToggleModule,MatCardModule,MatCheckboxModule,MatChipsModule,MatDatepickerModule,MatDialogModule,MatDividerModule,MatExpansionModule,MatGridListModule,MatIconModule,MatInputModule,MatListModule,MatMenuModule,MatNativeDateModule,MatPaginatorModule,MatProgressBarModule,MatProgressSpinnerModule,MatRadioModule,MatRippleModule,MatSelectModule,MatSidenavModule,MatSliderModule,MatSlideToggleModule,MatSnackBarModule,MatSortModule,MatStepperModule,MatTableModule,MatTabsModule,MatToolbarModule,MatTooltipModule,MatTreeModule
 } from '@angular/material';
-// import { MdTabsModule, MdProgressSpinnerModule, MdInputModule, MdDatepickerModule, MdNativeDateModule} from '@angular/material';
 import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
-import {DatePipe} from '@angular/common';
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import { NgSelectModule } from '@ng-select/ng-select';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+// import { Angular5Csv } from 'angular5-csv/Angular5-csv';
 
 @NgModule({
     declarations: [
@@ -28,15 +29,12 @@ import {DatePipe} from '@angular/common';
       MDBBootstrapModule.forRoot(),
       FormsModule,
       AppRoutingModule,
-    //   Ng2TableModule,
       Ng2SmartTableModule,
-      // MatDatepickerModule
-//       MdTabsModule,
-// MdProgressSpinnerModule,
-// MdInputModule,
-// MdDatepickerModule,
-// MdNativeDateModule,
-DatePickerModule
+      DatePickerModule,
+      NgbModule,
+      NgSelectModule,
+      NgMultiSelectDropDownModule,
+      // Angular5Csv
     ],
     exports:[
       MatAutocompleteModule,MatBadgeModule,MatBottomSheetModule,MatButtonModule,MatButtonToggleModule,MatCardModule,MatCheckboxModule,MatChipsModule,MatDatepickerModule,MatDialogModule,MatDividerModule,MatExpansionModule,MatGridListModule,MatIconModule,MatInputModule,MatListModule,MatMenuModule,MatNativeDateModule,MatPaginatorModule,MatProgressBarModule,MatProgressSpinnerModule,MatRadioModule,MatRippleModule,MatSelectModule,MatSidenavModule,MatSliderModule,MatSlideToggleModule,MatSnackBarModule,MatSortModule,MatStepperModule,MatTableModule,MatTabsModule,MatToolbarModule,MatTooltipModule,MatTreeModule

@@ -30,13 +30,13 @@
 </nav>
 <div id="menu" [ngbCollapse]="isCollapsed" class="menu1">
   <ul><br>
-    <li><i class="fas fa-users"></i>&nbsp;<a routerLink="/usermanagement" routerLinkActive="is-active">User
+    <li><i class="fas fa-users"></i>&nbsp;<a routerLink="/usermanagement" routerLinkActive="is-active" (click)="isCollapsed = !isCollapsed">User
         Management</a></li><br>
-    <li><i class="fas fa-th-list"></i>&nbsp;<a routerLink="/softwarereleasematrix" routerLinkActive="is-active">Software
+    <li><i class="fas fa-th-list"></i>&nbsp;<a routerLink="/softwarereleasematrix" routerLinkActive="is-active" (click)="isCollapsed = !isCollapsed">Software
         Release Matrix</a></li><br>
-    <li><i class="fas fa-medkit"></i>&nbsp;<a href="#" routerLinkActive="is-active">Health Check</a></li><br>
-    <li><i class="fa fa-file" aria-hidden="true"></i>&nbsp; <a href="#" routerLinkActive="is-active">Resource
+    <li><i class="fas fa-medkit"></i>&nbsp;<a href="#" routerLinkActive="is-active" (click)="isCollapsed = !isCollapsed">Health Check</a></li><br>
+    <li><i class="fa fa-file" aria-hidden="true"></i>&nbsp; <a href="#" routerLinkActive="is-active" (click)="isCollapsed = !isCollapsed">Resource
         Reservations</a></li><br>
-    <li><i class="fas fa-users"></i>&nbsp;<a href="#" routerLinkActive="is-active">Resource Management</a></li>
+    <li><i class="fas fa-users"></i>&nbsp;<a href="#" routerLinkActive="is-active" (click)="isCollapsed = !isCollapsed">Resource Management</a></li>
   </ul>
 </div>
