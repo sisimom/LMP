@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { SRMTableData } from '../table/SRM-table-data';
 import { conditionallyCreateMapObjectLiteral } from '@angular/compiler/src/render3/view/util';
+import { VariableAst } from '@angular/compiler';
 // import { DatePipe } from '@angular/common';
-// import { Angular5Csv } from 'angular5-csv/Angular5-csv';
+// import { Angular5Csv } from 'angular5-csv/dist/Angular5-csv';
+// import { Angular2Csv } from 'angular2-csv/Angular2-csv';
+import {Observable} from 'rxjs/Observable';
 interface setting {
   columns?: any;
   pager: any;
@@ -15,7 +18,7 @@ interface setting {
   styleUrls: ['./softwarereleasematrix.component.scss']
 })
 
-export class SoftwarereleasematrixComponent implements OnInit {
+export class SoftwarereleasematrixComponent implements OnInit,OnChanges {
   page = 1;
   public hist: boolean = false;
   public current: boolean = true;
@@ -49,7 +52,17 @@ export class SoftwarereleasematrixComponent implements OnInit {
     itemsShowLimit: 1,
     allowSearchFilter: true
   };
+
+  public columnlist:string[];
+  public columnlist1:string[];
+  // =['name','type'];
+  // ,'vendor','HardwarePlatform','os','BaseSWRelease','PatchRelease','DateofUpgrade','status','created','contact'];
   constructor() {
+    // var columnlist:string[]=['name','type'];
+    console.log("inside constructor : "+this.columnlist);
+  }
+  ngOnChanges(columnlist){
+    console.log("inside onchanges : "+this.columnlist);
   }
 
   public settings: setting = {
@@ -58,7 +71,7 @@ export class SoftwarereleasematrixComponent implements OnInit {
       type: { title: 'Type' },
       vendor: { title: 'Vendor' },
       HardwarePlatform: { title: 'Hardware/Platform' },
-      OS: { title: 'OS' },
+      os: { title: 'OS' },
       BaseSWRelease: { title: 'Base SW Release', width: "120px" },
       PatchRelease: { title: 'Patch Release' },
       DateofUpgrade: { title: 'Date of Upgrade' },
@@ -95,7 +108,71 @@ export class SoftwarereleasematrixComponent implements OnInit {
       class: 'table table-bordered table-striped table-sm'
     },
   };
+  public datacsv = [{
+    'name': 'Sindhu',
+    'type': 'sdd'
+    // 'vendor': 'Amazon',
+    // 'HardwarePlatform': 'sdsfdf',
+    // 'os': 'Windows',
+    // 'BaseSWRelease': '1.0',
+    // 'PatchRelease':'sdsf',
+    // 'DateofUpgrade':'01-01-2015',
+    // 'status':'Active',
+    // 'created':'No',
+    // 'contact':9003256466
+  }, {
+    'name': 'Sandhu',
+    'type': 'sdd'
+    // 'vendor': 'Flipkart',
+    // 'HardwarePlatform': 'sdsfdf',
+    // 'os': 'Windows',
+    // 'BaseSWRelease': '2.5',
+    // 'PatchRelease':'sdsf',
+    // 'DateofUpgrade':'01-01-2016',
+    // 'status':'Active',
+    // 'created':'No',
+    // 'contact':9003256466
+  }];
+    // public datacsv = [
+    //   {
+    //     name: "Test 1",
+    //     age: 13,
+    //     average: 8.2,
+    //     approved: true,
+    //     description: "using 'Content here, content here' "
+    //   },
+    //   {
+    //     name: 'Test 2',
+    //     age: 11,
+    //     average: 8.2,
+    //     approved: true,
+    //     description: "using 'Content here, content here' "
+    //   },
+    //   {
+    //     name: 'Test 4',
+    //     age: 10,
+    //     average: 8.2,
+    //     approved: true,
+    //     description: "using 'Content here, content here' "
+    //   },
+    // ];
+    public options = { 
+      fieldSeparator: ',',
+      quoteStrings: '"',
+      decimalseparator: '.',
+      showLabels: true, 
+      showTitle: true,
+      title: 'Software Release Matrix',
+      useBom: true,
+      noDownload: true,
+      headers:this.columnlist,
+      //  ['Name','Age','Average','Approved','Description'],
+      nullToEmptyString: true,
+    };
+ 
   ngOnInit(): void {
+    console.log("inside ngonint");
+    
   }
   OnClickCurr(): void {
     this.current = true;
@@ -119,29 +196,32 @@ export class SoftwarereleasematrixComponent implements OnInit {
     this.value2 = args.value;
   }
 
-  selectcolumns() {
+public selectcolumns() {
     this.settingsnew.columns = {};
-    // console.log(this.selectedColumns);
+    this.columnlist=[];
+    console.log("in dropdown before :"+this.columnlist);
+    console.log(this.selectedColumns);
     this.selectedColumns.forEach((element, index) => {
-      // console.log(element['name']);
       this.settingsnew.columns[element['name']] = { title: element['title'] };
+      this.columnlist[index]=element['name'];
+      var colstr:string=this.columnlist[index]
+      // const myObservable=new  Observable(observer=>{observer.next(colstr)});
+      // myObservable.subscribe(val=>{this.columnlist1[index]=val})
     });
+    // console.log("in dropdown after :"+this.columnlist);
     this.settings = Object.assign({}, this.settingsnew);
+    // return this.columnlist;
   }
-//   public options = { 
-//     fieldSeparator: ',',
-//     quoteStrings: '"',
-//     decimalseparator: '.',
-//     showLabels: true, 
-//     showTitle: true,
-//     title: 'Your title',
-//     useBom: true,
-//     noDownload: true,
-//     headers: ["First Name", "Last Name", "ID"],
-//     nullToEmptyString: true,
-//   };
-//   export(){
-//   new Angular5Csv(this.data, "filename", this.options);
-// }
+  // const myObservable=new  Observable(observer=>{observer.next(this.columnlist)});
+  // myObservable.subscribe(val=>{console.log("inside subscribe:"+val)})
+  // public myObservable= new Observable(this.selectcolumns);
+  // selectcolumns.subscribe(
+  //   v=>{this.columnlist1=v;}
+  // );
+    // export(){
+    //   new Angular2Csv(this.data, 'mycsv', {headers: (this.columnlist)});
+    // }
+    // myObservable:Observable<any>;
+    
 }
 

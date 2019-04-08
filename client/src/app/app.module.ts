@@ -21,7 +21,7 @@ import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-// import { Angular5Csv } from 'angular5-csv/Angular5-csv';
+import { Angular2CsvModule } from 'angular2-csv';
 
 @NgModule({
   declarations: [
@@ -29,9 +29,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     FooterComponent,
     DashboardComponent,
     ForgotpasswordComponent,
-    SoftwarereleasematrixComponent,
-    
-    
+    SoftwarereleasematrixComponent,   
   ],
   imports: [
     BrowserModule,
@@ -48,8 +46,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     DatePickerModule,
     FormsModule,ReactiveFormsModule,
     NgSelectModule,
-    NgMultiSelectDropDownModule,
-    // Angular5Csv
+    NgMultiSelectDropDownModule,Angular2CsvModule
   ],
   providers: [],
   schemas: [ NO_ERRORS_SCHEMA ],
