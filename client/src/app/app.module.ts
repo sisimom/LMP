@@ -21,7 +21,7 @@ import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-import { Angular2CsvModule } from 'angular2-csv';
+// import { Angular2CsvModule } from 'angular2-csv';
 
 @NgModule({
   declarations: [
@@ -46,7 +46,7 @@ import { Angular2CsvModule } from 'angular2-csv';
     DatePickerModule,
     FormsModule,ReactiveFormsModule,
     NgSelectModule,
-    NgMultiSelectDropDownModule,Angular2CsvModule
+    NgMultiSelectDropDownModule
   ],
   providers: [],
   schemas: [ NO_ERRORS_SCHEMA ],

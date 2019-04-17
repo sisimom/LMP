@@ -26,8 +26,8 @@
       <button class="btn btn-primary okbtn" (click)="selectcolumns()">Ok</button>
     </div>
     <ng2-smart-table [settings]="settings" [(source)]="data" ></ng2-smart-table>
-    <!-- <button class="btn btn-primary" (click)="export()">Export</button> -->
-    <angular2csv [data]="datacsv" filename="test.csv" [options]="options"></angular2csv>
+    <button class="btn btn-primary expbtn" (click)="export_current()">Export</button>
+    <!-- <angular2csv [data]="datacsv" filename="test.csv" [options]="options"></angular2csv> -->
   </div>
 
   <ng-template #template1>
@@ -58,5 +58,6 @@
     <div>
       <ng2-smart-table [(settings)]="settings" [source]="data1"></ng2-smart-table>
   </div>
+  <button class="btn btn-primary expbtn" (click)="export_history()">Export</button>
   </ng-template>
 </div>

@@ -4,7 +4,7 @@ import { conditionallyCreateMapObjectLiteral } from '@angular/compiler/src/rende
 import { VariableAst } from '@angular/compiler';
 // import { DatePipe } from '@angular/common';
 // import { Angular5Csv } from 'angular5-csv/dist/Angular5-csv';
-// import { Angular2Csv } from 'angular2-csv/Angular2-csv';
+import { Angular2Csv } from 'angular2-csv/Angular2-csv';
 import {Observable} from 'rxjs/Observable';
 interface setting {
   columns?: any;
@@ -53,10 +53,10 @@ export class SoftwarereleasematrixComponent implements OnInit,OnChanges {
     allowSearchFilter: true
   };
 
-  public columnlist:string[];
-  public columnlist1:string[];
-  // =['name','type'];
-  // ,'vendor','HardwarePlatform','os','BaseSWRelease','PatchRelease','DateofUpgrade','status','created','contact'];
+  public columnlist:string[]=['name','type','vendor','HardwarePlatform','os','BaseSWRelease','PatchRelease','DateofUpgrade','status','created','contact'];
+  // public columnlist1:string[];
+  // ;
+  // ];
   constructor() {
     // var columnlist:string[]=['name','type'];
     console.log("inside constructor : "+this.columnlist);
@@ -108,54 +108,7 @@ export class SoftwarereleasematrixComponent implements OnInit,OnChanges {
       class: 'table table-bordered table-striped table-sm'
     },
   };
-  public datacsv = [{
-    'name': 'Sindhu',
-    'type': 'sdd'
-    // 'vendor': 'Amazon',
-    // 'HardwarePlatform': 'sdsfdf',
-    // 'os': 'Windows',
-    // 'BaseSWRelease': '1.0',
-    // 'PatchRelease':'sdsf',
-    // 'DateofUpgrade':'01-01-2015',
-    // 'status':'Active',
-    // 'created':'No',
-    // 'contact':9003256466
-  }, {
-    'name': 'Sandhu',
-    'type': 'sdd'
-    // 'vendor': 'Flipkart',
-    // 'HardwarePlatform': 'sdsfdf',
-    // 'os': 'Windows',
-    // 'BaseSWRelease': '2.5',
-    // 'PatchRelease':'sdsf',
-    // 'DateofUpgrade':'01-01-2016',
-    // 'status':'Active',
-    // 'created':'No',
-    // 'contact':9003256466
-  }];
-    // public datacsv = [
-    //   {
-    //     name: "Test 1",
-    //     age: 13,
-    //     average: 8.2,
-    //     approved: true,
-    //     description: "using 'Content here, content here' "
-    //   },
-    //   {
-    //     name: 'Test 2',
-    //     age: 11,
-    //     average: 8.2,
-    //     approved: true,
-    //     description: "using 'Content here, content here' "
-    //   },
-    //   {
-    //     name: 'Test 4',
-    //     age: 10,
-    //     average: 8.2,
-    //     approved: true,
-    //     description: "using 'Content here, content here' "
-    //   },
-    // ];
+ 
     public options = { 
       fieldSeparator: ',',
       quoteStrings: '"',
@@ -198,13 +151,13 @@ export class SoftwarereleasematrixComponent implements OnInit,OnChanges {
 
 public selectcolumns() {
     this.settingsnew.columns = {};
-    this.columnlist=[];
+    // this.columnlist=[];
     console.log("in dropdown before :"+this.columnlist);
     console.log(this.selectedColumns);
     this.selectedColumns.forEach((element, index) => {
       this.settingsnew.columns[element['name']] = { title: element['title'] };
-      this.columnlist[index]=element['name'];
-      var colstr:string=this.columnlist[index]
+      // this.columnlist[index]=element['name'];
+      // var colstr:string=this.columnlist[index]
       // const myObservable=new  Observable(observer=>{observer.next(colstr)});
       // myObservable.subscribe(val=>{this.columnlist1[index]=val})
     });
@@ -222,6 +175,43 @@ public selectcolumns() {
     //   new Angular2Csv(this.data, 'mycsv', {headers: (this.columnlist)});
     // }
     // myObservable:Observable<any>;
-    
+    export_current(){
+      var options = { 
+        fieldSeparator: ',',
+        quoteStrings: '"',
+        decimalseparator: '.',
+        showLabels: true, 
+        showTitle: true,
+        title: 'Software Release Matrix - Current Release',
+        useBom: true,
+        noDownload: true,
+        // headers:this.columnlist,
+        headers:this.columnlist,
+        //  ['Name','Age','Average','Approved','Description'],
+        nullToEmptyString: true,
+      };
+      // this.source.getFilteredAndSorted.then(data=>{return data;})
+      new Angular2Csv(this.data, 'mycsv', options);
+    }
+    // myObservable:Observable<any>;
+    export_history(){
+      var options = { 
+        fieldSeparator: ',',
+        quoteStrings: '"',
+        decimalseparator: '.',
+        showLabels: true, 
+        showTitle: true,
+        title: 'Software Release Matrix - History Release',
+        useBom: true,
+        noDownload: true,
+        // headers:this.columnlist,
+        headers:this.columnlist,
+        //  ['Name','Age','Average','Approved','Description'],
+        nullToEmptyString: true,
+      };
+      // this.source.getFilteredAndSorted.then(data=>{return data;})
+      new Angular2Csv(this.data1, 'mycsv', options);
+    }
+   
 }
 

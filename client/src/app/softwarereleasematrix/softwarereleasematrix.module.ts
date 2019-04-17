@@ -15,7 +15,7 @@ import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-import { Angular2CsvModule } from 'angular2-csv';
+// import { Angular2CsvModule } from 'angular2-csv';
 
 @NgModule({
     declarations: [
@@ -33,7 +33,7 @@ import { Angular2CsvModule } from 'angular2-csv';
       DatePickerModule,
       NgbModule,
       NgSelectModule,
-      NgMultiSelectDropDownModule,Angular2CsvModule
+      NgMultiSelectDropDownModule
     ],
     exports:[
       MatAutocompleteModule,MatBadgeModule,MatBottomSheetModule,MatButtonModule,MatButtonToggleModule,MatCardModule,MatCheckboxModule,MatChipsModule,MatDatepickerModule,MatDialogModule,MatDividerModule,MatExpansionModule,MatGridListModule,MatIconModule,MatInputModule,MatListModule,MatMenuModule,MatNativeDateModule,MatPaginatorModule,MatProgressBarModule,MatProgressSpinnerModule,MatRadioModule,MatRippleModule,MatSelectModule,MatSidenavModule,MatSliderModule,MatSlideToggleModule,MatSnackBarModule,MatSortModule,MatStepperModule,MatTableModule,MatTabsModule,MatToolbarModule,MatTooltipModule,MatTreeModule
