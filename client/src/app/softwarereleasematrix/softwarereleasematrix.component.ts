@@ -1,11 +1,13 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
-import { SRMTableData } from '../table/SRM-table-data';
-import { conditionallyCreateMapObjectLiteral } from '@angular/compiler/src/render3/view/util';
-import { VariableAst } from '@angular/compiler';
+// import { SRMTableData } from '../table/SRM-table-data';
+// import { conditionallyCreateMapObjectLiteral } from '@angular/compiler/src/render3/view/util';
+// import { VariableAst } from '@angular/compiler';
 // import { DatePipe } from '@angular/common';
 // import { Angular5Csv } from 'angular5-csv/dist/Angular5-csv';
 import { Angular2Csv } from 'angular2-csv/Angular2-csv';
 import {Observable} from 'rxjs/Observable';
+import {SrmService} from '../service/srm.service'
+import { execFile } from 'child_process';
 interface setting {
   columns?: any;
   pager: any;
@@ -22,8 +24,8 @@ export class SoftwarereleasematrixComponent implements OnInit,OnChanges {
   page = 1;
   public hist: boolean = false;
   public current: boolean = true;
-  public data: Array<any> = SRMTableData;
-  public data1: Array<any> = SRMTableData;
+  public data: Array<any> ;
+  public data1: Array<any> ;
   public curclr: string = "rgb(11, 99, 214)";
   public hisclr: string = "rgb(11, 99, 214)";
   public minDate: Date = new Date("01/01/2000");
@@ -52,18 +54,23 @@ export class SoftwarereleasematrixComponent implements OnInit,OnChanges {
     itemsShowLimit: 1,
     allowSearchFilter: true
   };
-
-  public columnlist:string[]=['name','type','vendor','HardwarePlatform','os','BaseSWRelease','PatchRelease','DateofUpgrade','status','created','contact'];
-  // public columnlist1:string[];
-  // ;
-  // ];
-  constructor() {
+  constructor(private srmService:SrmService) {
     // var columnlist:string[]=['name','type'];
     console.log("inside constructor : "+this.columnlist);
+    this.srmService.func().subscribe((tabdata:any)=>{
+      this.data=tabdata;
+      this.data1=tabdata;
+      console.log(tabdata);
+    })
   }
   ngOnChanges(columnlist){
     console.log("inside onchanges : "+this.columnlist);
   }
+  public columnlist:string[]=['name','type','vendor','HardwarePlatform','os','BaseSWRelease','PatchRelease','DateofUpgrade','status','created','contact'];
+  // public columnlist1:string[];
+  // ;
+  // ];
+ 
 
   public settings: setting = {
     columns: {
@@ -156,25 +163,9 @@ public selectcolumns() {
     console.log(this.selectedColumns);
     this.selectedColumns.forEach((element, index) => {
       this.settingsnew.columns[element['name']] = { title: element['title'] };
-      // this.columnlist[index]=element['name'];
-      // var colstr:string=this.columnlist[index]
-      // const myObservable=new  Observable(observer=>{observer.next(colstr)});
-      // myObservable.subscribe(val=>{this.columnlist1[index]=val})
     });
-    // console.log("in dropdown after :"+this.columnlist);
     this.settings = Object.assign({}, this.settingsnew);
-    // return this.columnlist;
   }
-  // const myObservable=new  Observable(observer=>{observer.next(this.columnlist)});
-  // myObservable.subscribe(val=>{console.log("inside subscribe:"+val)})
-  // public myObservable= new Observable(this.selectcolumns);
-  // selectcolumns.subscribe(
-  //   v=>{this.columnlist1=v;}
-  // );
-    // export(){
-    //   new Angular2Csv(this.data, 'mycsv', {headers: (this.columnlist)});
-    // }
-    // myObservable:Observable<any>;
     export_current(){
       var options = { 
         fieldSeparator: ',',
@@ -212,6 +203,14 @@ public selectcolumns() {
       // this.source.getFilteredAndSorted.then(data=>{return data;})
       new Angular2Csv(this.data1, 'mycsv', options);
     }
-   
+    // exefun(){
+    //   // var WshShell = new ActiveXObject("Wscript.Shell"); //Create WScript Object
+    //   // // WshShell.run("C://Windows/cmd.exe");
+    //   // WshShell.run("client\src\app\exe\Notepad++\notepad++.exe");
+    //   // var exec = require('child_process').exec;
+    //   // execFile("../exe/Notepad++/notepad++.exe");
+    //   exec("../exe/Notepad++/notepad++.exe");
+    // }
+
 }
 
