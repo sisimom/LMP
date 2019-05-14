@@ -90,4 +90,18 @@ module.exports = function(app) {
         req.accessToken.id
     });
   });
+  
+  //Execute .exe
+  app.get('/softwarereleasematrix', function(req, res, next) {
+    var exec = require('child_process').execFile;
+   exec('./server/open.bat', function(err, data) {  
+        console.log(err)
+        console.log(data.toString());                       
+    });  
+  //   res.render('softwarereleasematrix', {
+  //     redirectUrl: '/api/SRMs/softwarereleasematrix'
+  //   });
+    res.send("hello");
+    // console.log("hello");
+  });
 };

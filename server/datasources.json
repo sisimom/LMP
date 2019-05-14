@@ -2,7 +2,7 @@
   "db": {
     "host": "localhost",
     "port": 27017,
-    "url": "",
+    "url": "mongodb://localhost",
     "database": "userdata",
     "password": "",
     "name": "db",
@@ -35,5 +35,15 @@
     "name": "storage",
     "connector": "loopback-component-storage-mongo",
     "provider": "filestore-mongo"
+  },
+  "srmdata": {
+    "host": "INBASDPC09041",
+    "port": 27017,
+    "url": "mongodb://localhost",
+    "database": "srmdb",
+    "password": "Sisira@1",
+    "name": "srmdata",
+    "user": "sindhu",
+    "connector": "mongodb"
   }
 }

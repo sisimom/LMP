@@ -7,7 +7,8 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { Angular2Csv } from 'angular2-csv/Angular2-csv';
 import {Observable} from 'rxjs/Observable';
 import {SrmService} from '../service/srm.service'
-import { execFile } from 'child_process';
+// import { execFile } from 'child_process';
+// import { runInThisContext } from 'vm';
 interface setting {
   columns?: any;
   pager: any;
@@ -203,14 +204,24 @@ public selectcolumns() {
       // this.source.getFilteredAndSorted.then(data=>{return data;})
       new Angular2Csv(this.data1, 'mycsv', options);
     }
-    // exefun(){
-    //   // var WshShell = new ActiveXObject("Wscript.Shell"); //Create WScript Object
-    //   // // WshShell.run("C://Windows/cmd.exe");
-    //   // WshShell.run("client\src\app\exe\Notepad++\notepad++.exe");
+    exefun(){
+      // var ActiveXObject: (type: string) => void;
+      // var WshShell = new  ActiveXObject("Wscript.Shell"); //Create WScript Object
+      // WshShell.execFile('../exe/open.bat');
+      // WshShell.Exec("client\src\app\exe\Notepad++\notepad++.exe");
     //   // var exec = require('child_process').exec;
     //   // execFile("../exe/Notepad++/notepad++.exe");
     //   exec("../exe/Notepad++/notepad++.exe");
-    // }
+    // var WshShell = new ActiveXObject("WScript.Shell");
+    // WshShell.Run("c:/windows/system32/notepad.exe", 1, false);
+    // runInThisContext("../exe/Notepad++/notepad++.exe");
+    // ("../")
+    this.srmService.func1().subscribe((data:any)=>{
+      console.log("in exe");
+      console.log(data);
+    });
+    
+    }
 
 }
 
