@@ -1,43 +1,29 @@
 'use strict';
 
 module.exports = function(Srm) {
-    Srm.status = function(cb) {
-        // var currentDate = new Date();
-        // var currentHour = currentDate.getHours();
-        // var OPEN_HOUR = 6;
-        // var CLOSE_HOUR = 20;
-        // console.log('Current hour is %d', currentHour);
-        // var response;
-        // if (currentHour >= OPEN_HOUR && currentHour < CLOSE_HOUR) {
-        //   response = 'We are open for business.';
-        // } else {
-        //   response = 'Sorry, we are closed. Open daily from 6am to 8pm.';
-        // }
-        // var exec = require('child_process').execFile;
+    Srm.Pytexe = function(cb) {
+        var response;
+        var exec = require('child_process').execFile;
 
-// var fun =function(){
-//    console.log("fun() start");
-var response;
-var exec = require('child_process').execFile;
-   exec('C:\Users\gs00604825\Desktop\LMP\common\models\open.bat', function(err, data) {  
-        console.log(err)
-        // response='inside .exe func';
+console.log(`Current directory: ${process.cwd()}`);
+var path="../common/Pyt/LMP_Pyt/dist/exe_testing";
+   exec('exe_testing.exe',{cwd:'./common/Pyt/LMP_Pyt/dist/exe_testing'}, function(err, data) {  
+        console.log("node error is "+err)
         console.log(data.toString());                       
     });  
-    response='inside .exe func';
-// }
-// fun();
+response='exe executed successfully';
+
         cb(null, response);
-        
+  
       };
     Srm.remoteMethod(
-        'status', {
+        'Pytexe', {
           http: {
-            path: '/status',
+            path: '/Pytexe',
             verb: 'get'
           },
           returns: {
-            arg: 'status',
+            arg: 'Pytexe',
             type: 'string'
           }
         }

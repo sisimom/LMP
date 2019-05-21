@@ -185,7 +185,7 @@ public selectcolumns() {
       // this.source.getFilteredAndSorted.then(data=>{return data;})
       new Angular2Csv(this.data, 'mycsv', options);
     }
-    // myObservable:Observable<any>;
+    
     export_history(){
       var options = { 
         fieldSeparator: ',',
@@ -196,27 +196,13 @@ public selectcolumns() {
         title: 'Software Release Matrix - History Release',
         useBom: true,
         noDownload: true,
-        // headers:this.columnlist,
         headers:this.columnlist,
-        //  ['Name','Age','Average','Approved','Description'],
         nullToEmptyString: true,
       };
-      // this.source.getFilteredAndSorted.then(data=>{return data;})
       new Angular2Csv(this.data1, 'mycsv', options);
     }
     exefun(){
-      // var ActiveXObject: (type: string) => void;
-      // var WshShell = new  ActiveXObject("Wscript.Shell"); //Create WScript Object
-      // WshShell.execFile('../exe/open.bat');
-      // WshShell.Exec("client\src\app\exe\Notepad++\notepad++.exe");
-    //   // var exec = require('child_process').exec;
-    //   // execFile("../exe/Notepad++/notepad++.exe");
-    //   exec("../exe/Notepad++/notepad++.exe");
-    // var WshShell = new ActiveXObject("WScript.Shell");
-    // WshShell.Run("c:/windows/system32/notepad.exe", 1, false);
-    // runInThisContext("../exe/Notepad++/notepad++.exe");
-    // ("../")
-    this.srmService.func1().subscribe((data:any)=>{
+    this.srmService.func_exe().subscribe((data:any)=>{
       console.log("in exe");
       console.log(data);
     });
