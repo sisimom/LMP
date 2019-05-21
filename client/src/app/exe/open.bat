@@ -1,1 +1,0 @@
-start "./exe/Notepad++" notepad++.exe
